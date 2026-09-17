@@ -13,5 +13,6 @@
 | [frontend-study](./frontend-study) | 프론트엔드(클라이언트) 기초 — HTML, CSS, JavaScript |
 | [typescript-study](./typescript-study) | TypeScript 학습 및 실습 코드 |
 | [c-study](./c-study) | C 언어 기초 (문법, 변수/자료형, 연산자, 제어문) |
+| [python-study](./python-study) | 파이썬 기초 (변수, 조건문, 반복문, 함수, 표준 라이브러리) |
 
 각 폴더는 독립적인 학습 자료이며, 진행 순서는 [web-fullstack-roadmap/README.md](./web-fullstack-roadmap/README.md)를 기준으로 삼는다.
