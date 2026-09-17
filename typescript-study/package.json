@@ -1,0 +1,16 @@
+{
+  "name": "typescript-study",
+  "version": "1.0.0",
+  "private": true,
+  "description": "타입스크립트 기초부터 공부하는 개인 학습 프로젝트",
+  "scripts": {
+    "run": "ts-node",
+    "build": "tsc",
+    "check": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.0"
+  }
+}
