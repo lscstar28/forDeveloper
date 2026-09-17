@@ -15,28 +15,83 @@ C는 1972년 데니스 리치가 만든 절차지향 언어로, 운영체제(유
 
 ---
 
-## 2. 개발 환경 준비
+## 2. 개발 환경 준비 (Windows)
 
-C 코드는 컴파일러가 있어야 실행할 수 있다. Windows에서는 아래 중 하나를 선택한다.
+C 코드는 컴파일러가 있어야 실행할 수 있다. Windows에서 gcc를 준비하는 방법은 크게 세 가지다.
 
-| 방법 | 설명 |
-|---|---|
-| MinGW-w64 | Windows에 직접 gcc를 설치. `gcc` 명령어를 PowerShell/cmd에서 바로 사용 |
-| WSL(리눅스) | WSL 안에 `sudo apt install gcc` 로 설치, 리눅스 환경과 동일하게 사용 |
-| VS Code + C/C++ 확장 | 위 컴파일러 중 하나를 설치한 뒤 에디터에서 빌드/디버그 |
+| 방법 | 장점 | 단점 |
+|---|---|---|
+| MSYS2 (MinGW-w64) | Windows에 직접 설치, 네이티브 `.exe` 생성 | 초기 설정(PATH 등)이 조금 번거로움 |
+| WSL(리눅스) | 리눅스와 100% 동일한 환경, `apt`로 간편 설치 | 별도 리눅스 서브시스템이 필요, 파일 경로가 이원화됨 |
+| VS Code + 확장 | 둘 중 하나를 설치한 뒤 에디터에서 빌드/디버그 | 컴파일러 자체는 위 두 방법 중 하나로 먼저 준비해야 함 |
 
-설치 확인:
+처음 시작한다면 **WSL**이 설정이 가장 간단하고(리눅스 명령어를 그대로 씀), Windows 네이티브 프로그램(.exe)을 만들어야 한다면 **MSYS2**를 쓴다. 아래에서 두 방법을 모두 자세히 정리한다.
 
-```bash
-gcc --version
-```
+### 2-1. 방법 A: WSL + gcc (추천, 가장 간단)
 
-컴파일 및 실행:
+1. **PowerShell을 관리자 권한으로 실행**한다 (시작 메뉴에서 PowerShell 검색 → 우클릭 → "관리자 권한으로 실행").
+2. 아래 명령으로 WSL과 기본 배포판(Ubuntu)을 한 번에 설치한다.
+
+   ```powershell
+   wsl --install
+   ```
+
+3. 설치가 끝나면 **PC를 재부팅**한다. 재부팅 후 Ubuntu 터미널이 자동으로 열리며, 리눅스 사용자 이름과 비밀번호를 만들라고 물어본다 (원하는 값으로 입력).
+4. Ubuntu 터미널에서 패키지 목록을 갱신하고 빌드 도구(gcc 포함)를 설치한다.
+
+   ```bash
+   sudo apt update
+   sudo apt install build-essential -y
+   ```
+
+   `build-essential`에는 `gcc`, `g++`, `make` 등 C/C++ 빌드에 필요한 도구가 모두 포함되어 있다.
+5. 설치 확인:
+
+   ```bash
+   gcc --version
+   ```
+
+6. 이후 Windows 터미널에서 `wsl`이라고 치면 언제든 이 리눅스 환경으로 들어갈 수 있다. Windows의 `C:\DEV\...` 경로는 WSL 안에서 `/mnt/c/DEV/...`로 접근한다.
+
+### 2-2. 방법 B: MSYS2로 MinGW-w64 설치 (Windows 네이티브)
+
+1. [https://www.msys2.org](https://www.msys2.org) 에서 설치 파일(`msys2-x86_64-*.exe`)을 내려받아 실행한다. 설치 경로는 기본값(`C:\msys64`)을 그대로 둔다.
+2. 설치가 끝나면 시작 메뉴에서 **"MSYS2 MINGW64"** 터미널을 연다 (일반 "MSYS2" 터미널이 아니라 **MINGW64**로 표시된 것을 골라야 한다 — 64비트 Windows용 gcc가 이 환경에 연결되어 있다).
+3. 이 터미널에서 gcc 도구 모음을 설치한다.
+
+   ```bash
+   pacman -Syu               # 패키지 데이터베이스/시스템 갱신 (완료 후 터미널이 닫히면 다시 열고 한 번 더 실행)
+   pacman -S mingw-w64-x86_64-gcc
+   ```
+
+4. 설치된 gcc는 `C:\msys64\mingw64\bin\gcc.exe`에 있다. 이 경로를 **PowerShell/cmd에서도** 쓰려면 시스템 PATH에 등록해야 한다.
+   - 시작 메뉴 → "환경 변수 편집" 검색 → "시스템 환경 변수 편집" 실행
+   - "환경 변수" 버튼 → 사용자 변수(또는 시스템 변수)의 `Path` 선택 → "편집"
+   - "새로 만들기" → `C:\msys64\mingw64\bin` 입력 → 확인 → 확인 (모든 창 닫기)
+   - **새 PowerShell 창을 열어야** 변경된 PATH가 적용된다 (기존에 열려 있던 창은 반영 안 됨)
+5. 새 PowerShell 창에서 설치 확인:
+
+   ```powershell
+   gcc --version
+   ```
+
+### 2-3. VS Code 연동 (선택, 둘 다에 적용 가능)
+
+1. [VS Code](https://code.visualstudio.com/)를 설치한다.
+2. VS Code 왼쪽 확장(Extensions) 탭에서 **"C/C++"** (Microsoft 제공) 확장을 설치한다.
+3. WSL을 쓴다면 **"WSL"** 확장도 함께 설치하고, VS Code 좌측 하단의 파란색 `><` 아이콘 → "Reopen in WSL"을 눌러 WSL 안의 파일/터미널로 연결해서 작업한다.
+4. 터미널(``Ctrl + ` ``)에서 `gcc` 명령이 바로 실행되면 설정 완료다. 별도의 `tasks.json` 없이도 통합 터미널에서 아래처럼 컴파일/실행하면 된다.
+
+### 컴파일 및 실행 (공통)
+
+컴파일러 준비가 끝났으면, 어떤 방법을 택했든 컴파일 명령은 동일하다.
 
 ```bash
 gcc hello.c -o hello     # hello.c를 컴파일해서 hello(.exe) 실행 파일 생성
-./hello                  # 실행 (Windows cmd에서는 hello.exe)
+./hello                  # 실행 (WSL/MSYS2 터미널 기준. Windows cmd에서는 hello.exe)
 ```
+
+> ⚠️ **자주 겪는 문제**: `gcc`를 설치했는데도 "명령을 찾을 수 없다"는 에러가 난다면, 대부분 PATH 등록 후 **터미널을 새로 열지 않아서**다. 새 터미널 창을 열어 `gcc --version`으로 먼저 확인하는 습관을 들이자.
 
 ---
 
