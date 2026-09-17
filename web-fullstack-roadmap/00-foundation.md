@@ -12,7 +12,7 @@
 ## 컴퓨터 공통 지식
 
 - [ ] 네트워크 기초 (HTTP/HTTPS, DNS, TCP/IP, 포트) — 참고: [../network-study](../network-study)
-- [ ] 클라이언트-서버 구조 이해
+- [ ] 클라이언트-서버 구조 이해 — 참고: [../network-study/02-client-server-architecture.md](../network-study/02-client-server-architecture.md)
 - [ ] 운영체제 기초 (프로세스, 파일 시스템, 환경변수)
 
 ## 프로그래밍 기본기
