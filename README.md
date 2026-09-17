@@ -12,5 +12,6 @@
 | [network-study](./network-study) | 네트워크 기초 (IP, 포트, TCP/UDP, DNS, HTTP/HTTPS) |
 | [frontend-study](./frontend-study) | 프론트엔드(클라이언트) 기초 — HTML, CSS, JavaScript |
 | [typescript-study](./typescript-study) | TypeScript 학습 및 실습 코드 |
+| [c-study](./c-study) | C 언어 기초 (문법, 변수/자료형, 연산자, 제어문) |
 
 각 폴더는 독립적인 학습 자료이며, 진행 순서는 [web-fullstack-roadmap/README.md](./web-fullstack-roadmap/README.md)를 기준으로 삼는다.
