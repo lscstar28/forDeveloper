@@ -374,7 +374,8 @@ shellcheck script.sh        # 정적 분석 도구 (설치 필요) - 실무에�
 
 ## 다음에 공부할 것 (TODO)
 
-- [ ] `alias`, `.bashrc`/`.zshrc` 커스터마이징
+이어서 [03-shell-config.md](03-shell-config.md)에서 `alias`와 `.bashrc` 설정을 다룬다.
+
 - [ ] 정규표현식 심화 (`grep -E`, `sed -E`, capture group)
 - [ ] `xargs`로 파이프 결과를 명령어 인자로 변환하기
 - [ ] cron으로 스케줄링, systemd timer

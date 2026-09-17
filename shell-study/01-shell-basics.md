@@ -161,7 +161,7 @@ command | tee output.txt
 
 ## 다음에 공부할 것 (TODO)
 
-- [ ] 쉘 스크립트 작성 (`#!/bin/bash`, 조건문, 반복문)
-- [ ] 함수와 인자(`$1`, `$@`, `$#`)
-- [ ] 프로세스 관리 (`&`, `jobs`, `fg`, `bg`)
-- [ ] alias, `.bashrc` / `.zshrc` 설정
+- [x] 쉘 스크립트 작성 (`#!/bin/bash`, 조건문, 반복문) → [02-shell-scripting.md](02-shell-scripting.md)
+- [x] 함수와 인자(`$1`, `$@`, `$#`) → [02-shell-scripting.md](02-shell-scripting.md)
+- [x] 프로세스 관리 (`&`, `jobs`, `fg`, `bg`) → [02-shell-scripting.md](02-shell-scripting.md)
+- [x] alias, `.bashrc` / `.zshrc` 설정 → [03-shell-config.md](03-shell-config.md)

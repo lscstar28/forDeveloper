@@ -9,6 +9,7 @@
 | [web-fullstack-roadmap](./web-fullstack-roadmap) | 웹 풀스택 학습 로드맵 (기초 → 프론트엔드 → 백엔드 → DB → 인프라 → 심화) |
 | [git-study](./git-study) | Git 기초/심화, 협업 워크플로 |
 | [shell-study](./shell-study) | 쉘(Shell) 기초, 스크립팅 |
+| [network-study](./network-study) | 네트워크 기초 (IP, 포트, TCP/UDP, DNS, HTTP/HTTPS) |
 | [typescript-study](./typescript-study) | TypeScript 학습 및 실습 코드 |
 
 각 폴더는 독립적인 학습 자료이며, 진행 순서는 [web-fullstack-roadmap/README.md](./web-fullstack-roadmap/README.md)를 기준으로 삼는다.
