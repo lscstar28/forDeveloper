@@ -1,8 +1,8 @@
 #!/bin/bash
 # set 옵션 실습 스크립트
 #
-# 실행법: bash 01-set-options.sh
-#         (또는 chmod +x 01-set-options.sh 후 ./01-set-options.sh)
+# 실행법: bash 02-set-options.sh
+#         (또는 chmod +x 02-set-options.sh 후 ./02-set-options.sh)
 #
 # set은 "쉘 자신의 동작 옵션을 켜고 끄는" 내장 명령어다.
 #   set -옵션문자   → 옵션을 켠다 (- = on)

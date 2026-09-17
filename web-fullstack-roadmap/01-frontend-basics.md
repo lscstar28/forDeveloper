@@ -1,11 +1,13 @@
 # 1단계 - 프론트엔드 기초
 
-## HTML
+참고: [../frontend-study](../frontend-study)
+
+## HTML — [frontend-study/01-html-basics.md](../frontend-study/01-html-basics.md)
 
 - [ ] 시맨틱 태그, 문서 구조
 - [ ] 폼(form), 접근성(a11y) 기초
 
-## CSS
+## CSS — [frontend-study/02-css-basics.md](../frontend-study/02-css-basics.md)
 
 - [ ] 박스 모델, 레이아웃 기초
 - [ ] Flexbox
@@ -13,7 +15,7 @@
 - [ ] 반응형 디자인 (미디어 쿼리)
 - [ ] CSS 전처리기 또는 유틸리티 (Sass 또는 Tailwind CSS 중 택1)
 
-## JavaScript
+## JavaScript — [frontend-study/03-javascript-basics.md](../frontend-study/03-javascript-basics.md)
 
 - [ ] 문법 기초 (변수, 함수, 조건/반복문)
 - [ ] 배열/객체 메서드 (map, filter, reduce 등)

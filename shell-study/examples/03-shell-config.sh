@@ -35,12 +35,26 @@ mkcd_demo "alias_vs_func_test"
 echo ""
 
 echo "===== 데모 3: source vs bash 실행 - 변수가 살아남는가 ====="
+
+echo "-- 준비 단계: 테스트용 설정파일을 heredoc으로 만든다."
+echo "   cat > \$tmpfile <<'EOF' 의 의미:"
+echo "   1) cat 은 받은 입력을 그대로 출력하는 명령어"
+echo "   2) > \$tmpfile 로 그 출력을 화면 대신 파일에 쓰도록 리다이렉션"
+echo "   3) <<'EOF' ~ EOF 사이의 여러 줄 텍스트를 cat의 입력(stdin)으로 흘려보냄"
+echo "   -> 결과: 그 텍스트 내용 그대로 담긴 파일이 하나 생성됨"
+echo "   'EOF'는 bash 예약어가 아니라 '여기서 끝'이라고 내가 정한 표식일 뿐."
+echo "   따옴표(') 붙인 이유: 안의 \$DEMO_VAR 를 지금 당장 확장하지 말고 글자 그대로 파일에 남기려고."
 tmpfile="/tmp/source_demo_vars.sh"
 cat > "$tmpfile" <<'EOF'
 DEMO_VAR="설정파일에서 정의된 값"
 EOF
+echo "-- 생성된 파일 내용 확인:"
+cat "$tmpfile"
+echo ""
 
 echo "-- bash로 실행 (자식 프로세스, 별도 환경):"
+echo "   unset DEMO_VAR 은 'DEMO_VAR를 아예 존재한 적 없는 상태로 지운다'는 뜻."
+echo "   (01-shell-basics.md 7번 챕터 참고. 매번 실험 전에 깨끗한 상태로 만들려고 지우는 것)"
 unset DEMO_VAR
 bash "$tmpfile"
 echo "실행 후 현재 쉘의 DEMO_VAR = '$DEMO_VAR'   (비어있어야 정상, 자식 프로세스 안에서만 설정됐으므로)"

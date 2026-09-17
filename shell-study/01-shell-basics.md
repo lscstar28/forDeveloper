@@ -111,6 +111,25 @@ export MY_VAR="value"  # 환경변수로 지정 (하위 프로세스에서도 �
 echo $PATH              # PATH 환경변수 확인
 ```
 
+### `unset` — 변수를 아예 지우기
+
+`unset`은 변수를 "빈 값으로 만드는" 게 아니라, **그 변수가 애초에 존재한 적 없는 상태로 완전히 지워버리는** 명령어다.
+
+```bash
+name="claude"
+echo "$name"        # claude
+
+name=""             # 빈 문자열로 만듦 -> 변수는 여전히 "존재"한다 (값만 비어있음)
+echo "$name"        # (아무것도 안 나옴, 하지만 변수 자체는 있음)
+
+unset name          # 변수 자체를 제거
+echo "$name"        # (역시 아무것도 안 나옴 - 겉보기엔 위와 똑같아 보임)
+```
+
+겉으로는 `name=""`와 `unset name`이 똑같아 보이지만 차이가 있다. [02-shell-scripting.md](02-shell-scripting.md)에서 다룬 `set -u`(nounset) 옵션을 켜두면 이 차이가 바로 드러난다: `unset`으로 지운 변수를 참조하면 "정의된 적 없는 변수"라며 즉시 에러가 나지만, 빈 문자열로 설정된 변수는 값이 비어있을 뿐 "정의는 되어 있는" 상태라 에러가 안 난다.
+
+`unset`을 실무에서 쓰는 이유: 스크립트 안에서 같은 변수 이름을 재사용하는 테스트/반복 로직을 짤 때, 이전 값이 남아서 헷갈리지 않도록 매번 깨끗한 상태에서 시작하려고 지워두는 것.
+
 ---
 
 ## 8. 실행 권한과 프로세스 (Linux/Mac 기준)
@@ -156,6 +175,16 @@ command | tee output.txt
 | `rm` | `Remove-Item` | 삭제 |
 | `grep` | `Select-String` | 문자열 검색 |
 | `export VAR=x` | `$env:VAR = "x"` | 환경변수 설정 |
+
+---
+
+## 11. 직접 실행해보는 예제
+
+[examples/01-shell-basics.sh](examples/01-shell-basics.sh) 를 실행하면 2~7번 챕터 내용을 `/tmp` 안 임시 폴더에서 직접 확인할 수 있다.
+
+```bash
+bash examples/01-shell-basics.sh
+```
 
 ---
 
